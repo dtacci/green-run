@@ -88,6 +88,7 @@ router.post('/edit', (req, res, next) => {
 		} else { 
 			//edited!
 			console.log('successfully edited');
+			res.send({});
 		}
 	});
 });

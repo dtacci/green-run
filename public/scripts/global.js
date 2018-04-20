@@ -184,6 +184,8 @@ function editBeer(dataRel) {
       data: { id: dataRel, beerData: editedBeerObj },
       url: '/beers/edit',
       dataType: 'JSON'
+    }).fail(function( response ) {
+      console.log(' error it failed');
     }).done(function( response ) {
 
       //check for successful response
@@ -202,7 +204,7 @@ function editBeer(dataRel) {
   else {
     //if errorCount is more than 0, error out
     alert('Please fill all the fields!');
-    return false;
+    return false;s
   }
 };
 

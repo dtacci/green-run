@@ -38,11 +38,37 @@ html .modal-dialog {
   background-position-x: 70%;
   background-repeat: no-repeat; }
 
+@keyframes rotater {
+  0% {
+    transform: rotate(0) scale(0); }
+  50% {
+    transform: rotate(540deg) scale(0.5); }
+  100% {
+    transform: rotate(1080deg) scale(1); } }
+
 #brewinLogo {
   position: absolute;
   top: -13%;
   transform: rotate(-10deg);
-  left: -5%; }
+  left: -5%;
+  animation-name: rotater;
+  animation-duration: 400ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out; }
+
+@keyframes grower {
+  0% {
+    transform: scale(0); }
+  80% {
+    transform: scale(1.25); }
+  100% {
+    transform: scale(1); } }
+
+#interstate {
+  animation-name: grower;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out; }
 
 /* SUBNAV ====================================== */
 #subNav {

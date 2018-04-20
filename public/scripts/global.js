@@ -26,8 +26,14 @@ $(document).ready(function() {
 });
 
 
-// Functions =============================================================
 
+// Functions =============================================================
+function scroll2beer() {
+  document.querySelector('.beer-holder').scrollIntoView({ 
+    behavior: 'smooth' 
+  });
+}
+function getRandomInt(max) { return Math.floor(Math.random() * Math.floor(max)); }
 
 //Modal for Add/Contribute Beer =============================================================
 function addBeerModal() {

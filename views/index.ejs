@@ -4,13 +4,14 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Roboto+Slab" rel="stylesheet">
   </head>
  
   <% include ../partials/postModal %>
 
   <% include ../partials/editModal %>
 
-  <div class="jumbotron">
+  <div class="logoHeader jumbotron">
     <div class="container">
       <div id="logo-holder">
         <img id="brewinLogo" src="/assets/brewin-usa.png"/>
@@ -21,10 +22,24 @@
   <body>
     <div id="subNav">
       <div class="container">
-        <!-- <a id="viewBeerz" class="btn btn-primary btn-lg" ">View Our Beers</a> -->
+        <a id="viewBeerz" class="btn btn-primary btn-lg" onClick="scroll2beer()">View Our Beers</a>
         <a id="postBeerz" class="btn btn-primary btn-lg" onClick="addBeerModal()">Contribute Your Own!</a>        
       </div>
     </div>
+
+    <section class="featured-beer jumbotron container-fluid">
+      <div class="row align-items-center">
+        <div class="featured-text-holder col-6">
+          <% var randBeer = Math.floor(Math.random() * Math.floor(beerList.value.length - 1)); %>
+          <h1>Featured Beer:</h1>
+          <h2><%= beerList.value[randBeer].name %></h2>
+          <h3><span>by</span><%= beerList.value[randBeer].breweryName %></h3>
+        </div>
+        <div class="six-pack-holder col-6">
+          <img src="./assets/six-pack-1-blue.png"/>
+        </div>
+    </div>
+    </section>
 
     <div class="container beer-holder">
       <!-- Example of how to render the data server-side // we could also do this with ajax -->

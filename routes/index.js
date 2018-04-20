@@ -13,15 +13,9 @@ router.get('/', (req, res, next) => {
   beerHub.all((err, beers) => {
   	var beerList = JSON.parse(beers);
   	// console.log(beerList);
+  	console.log('beers' + beers);
     res.render('index', { beers, beerList, title: 'Brewin USA' });
   });
 });
-
-	// router.post('/', (req, res, next) => {
-	//   beerHub.edit((err, beers) => {
-	//   	var beerList = JSON.parse(beers);
-	//   	console.log(beerList);
-	//   });
-	// });
 
 module.exports = router;

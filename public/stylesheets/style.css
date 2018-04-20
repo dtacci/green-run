@@ -9,6 +9,9 @@ body {
 a {
   color: #00B7FF; }
 
+h1 {
+  font-family: 'Alfa Slab One', cursive; }
+
 /* MODAL ====================================== */
 html .modal-dialog {
   max-width: 680px; }
@@ -17,7 +20,7 @@ html .modal-dialog {
   margin-bottom: 2rem; }
 
 /* HEADER ====================================== */
-div.jumbotron {
+.logoHeader.jumbotron {
   background-image: url(/assets/bgkd3.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -49,8 +52,9 @@ div.jumbotron {
   border-bottom: 5px solid black;
   box-shadow: 5px 65px 125px rgba(255, 255, 255, 0.95); }
 
-#subNav a {
-  color: white; }
+#subNav a, #subNav span {
+  color: white;
+  margin-right: 1rem; }
 
 #toggleBrewed {
   color: white;
@@ -58,6 +62,76 @@ div.jumbotron {
 
 #toggleBrewed.faded {
   color: rgba(255, 255, 255, 0.7); }
+
+#subNav span {
+  margin: 0 1rem; }
+
+/* FEATURED ====================================== */
+section.featured-beer.jumbotron {
+  min-height: 8rem;
+  background-color: transparent;
+  height: 56rem;
+  display: block; }
+
+.six-pack-holder {
+  min-height: 8rem;
+  background-color: transparent;
+  /*  background-image: url(/assets/six-pack-1-blue.png);
+  background-position: 83% 104%;
+  background-repeat: no-repeat;
+  background-size: 700px;*/
+  height: 56rem;
+  display: block; }
+
+.featured-beer h1 {
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 7rem;
+  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+  position: relative;
+  padding-bottom: 0;
+  width: fit-content;
+  border-bottom: 1.25rem solid #212529;
+  float: right; }
+
+.featured-beer h2 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 5rem;
+  clear: right;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+  font-weight: bold; }
+
+.featured-text-holder h3 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 2rem;
+  clear: right;
+  text-shadow: 1px 1px rgba(255, 255, 255, 0.7); }
+
+.featured-text-holder {
+  text-align: right; }
+
+.featured-text-holder h3 span {
+  font-size: 1rem;
+  margin-right: .5rem; }
+
+.six-pack-holder img {
+  max-width: 100%;
+  padding: 3rem;
+  max-height: 54rem;
+  margin-left: 2rem; }
+
+/* These should really be done with Mixins and SASS */
+@media (max-width: 1600px) {
+  section.featured-beer.jumbotron, .six-pack-holder {
+    height: 46rem; } }
+
+@media (max-width: 1200px) {
+  section.featured-beer.jumbotron, .six-pack-holder {
+    height: 40rem; }
+  .featured-beer h1 {
+    font-size: 4rem;
+    border-bottom: 1rem solid #212529; }
+  .featured-beer h2 {
+    font-size: 3rem; } }
 
 /* BEERS ====================================== */
 .beer-holder {

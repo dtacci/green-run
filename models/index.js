@@ -14,7 +14,7 @@ exports.create = function (beerObj, cb) {
     const jsonBeers = JSON.stringify(beers, null, 2);
     fs.writeFile(beerPath, jsonBeers, 'utf8', (error) => {
       if (error) throw error;
-      cb(null, 'Successfully added');
+      cb(null, 'Successfully added object to JSON');
     });
   });
 };
@@ -35,10 +35,11 @@ exports.delete = function (id, cb) {
     const parsedData = JSON.parse(data);
     parsedData.value = parsedData.value.filter(el => el.id !== id);
     const deletedBeer = findBeerObject(id, data);
+    console.log('deletedBeer', deletedBeer);
     const jsonBeers = JSON.stringify(parsedData, null, 2);
     fs.writeFile(beerPath, jsonBeers, 'utf8', (error) => {
       if (error) throw error;
-      cb(null, `Successfully deleted ${deletedBeer.name} from ${deletedBeer.breweryName} with an ID of ${deletedBeer.id}`);
+      cb(null, `Successfully deleted `);
     });
   });
 };
@@ -51,7 +52,7 @@ exports.edit = function (id, beerData, cb) {
     parsedData.value.forEach((el, i) => {
       if (el.id === id) {
         beerIndex = i;
-        parsedData.value[i] = { ...el, ...beerData };
+        parsedData.value[i] = {...el, ...beerData };
       }
     });
     const jsonBeers = JSON.stringify(parsedData, null, 2);
@@ -71,7 +72,7 @@ function findBeerObject(id, beerList) {
 
 // gets all data from file
 exports.all = function (cb) {
-  fs.readFile(beerPath, 'utf8', (err, data) => {
+  fs.readFile(beerPath, null, (err, data) => {
     if (err) throw err;
     cb(null, data);
   });

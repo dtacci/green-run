@@ -26,11 +26,11 @@
       "id": 3,
       "name": "Aswang Ale",
       "activelyBrewed": "true",
-      "ibu": 31,
-      "abv": 4.2,
+      "ibu": "31",
+      "abv": "4.2",
       "flavors": "butter, yeast",
       "lastTappedOn": "2/13/2016",
-      "breweryId": "b3TplPdS",
+      "breweryId": "UserSubmitted",
       "breweryName": "Northern Hemisphere Brewco"
     },
     {
@@ -158,11 +158,11 @@
       "id": 22,
       "name": "Tikibalang Barley Wine",
       "activelyBrewed": "true",
-      "ibu": 45,
-      "abv": 9.6,
-      "flavors": "bourbon",
+      "ibu": "45",
+      "abv": "9.6",
+      "flavors": "bourbony",
       "lastTappedOn": "3/14/2016",
-      "breweryId": "b3TplPdS",
+      "breweryId": "UserSubmitted",
       "breweryName": "Northern Hemisphere Brewco"
     },
     {
@@ -180,11 +180,11 @@
       "id": 27,
       "name": "North Adjule Lager",
       "activelyBrewed": "true",
-      "ibu": 30,
-      "abv": 3.7,
-      "flavors": "citrus",
+      "ibu": "30",
+      "abv": "3.7",
+      "flavors": "citrusy",
       "lastTappedOn": "2/8/2016",
-      "breweryId": "Ek4mwsBoe",
+      "breweryId": "UserSubmitted",
       "breweryName": "Southern Hemisphere Brewco"
     }
   ]

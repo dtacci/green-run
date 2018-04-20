@@ -2,13 +2,55 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <h4>Here is your json data:</h4>
-    <div>
-      <%= beers %>
+ 
+  <% include ../partials/postModal %>
+
+  <% include ../partials/editModal %>
+
+  <div class="jumbotron">
+    <div class="container">
+      <div id="logo-holder">
+        <img id="brewinLogo" src="/assets/brewin-usa.png"/>
+      </div>
     </div>
+  </div> 
+
+  <body>
+    <div id="subNav">
+      <div class="container">
+        <!-- <a id="viewBeerz" class="btn btn-primary btn-lg" ">View Our Beers</a> -->
+        <a id="postBeerz" class="btn btn-primary btn-lg" onClick="addBeerModal()">Contribute Your Own!</a>        
+      </div>
+    </div>
+
+    <div class="container beer-holder">
+      <!-- Example of how to render the data server-side // we could also do this with ajax -->
+      <div class="row beer-card-container" data-isotope='{ "itemSelector": ".card", "layoutMode": "fitRows", "filter": ".card" }' >
+        <% for (var i = 0; i< beerList.value.length; i++) { %>
+          <div class="card col-4 brewed<%= beerList.value[i].activelyBrewed %>" style="" data-rel="<%= beerList.value[i].id %>">
+            <div class="card-body">
+              <h5 class="card-title">#<%= beerList.value[i].id %> <%= beerList.value[i].name %></h5>
+              <h6>by <%= beerList.value[i].breweryName %></h6>
+              <h6><%= beerList.value[i].abv %>% ABV, <%= beerList.value[i].ibu %> IBU </h6>
+              <h6 class="small">Last tapped on <%= beerList.value[i].lastTappedOn %></h6>
+              <p class="card-text">Tastes: <%= beerList.value[i].flavors %></p>
+              <a href="#" class="btn btn-primary" data-rel="<%= beerList.value[i].id %>" onClick=editBeerModal(this.getAttribute('data-rel'))>Edit</a>
+              <a href="#" class="btn btn-primary" data-rel="<%= beerList.value[i].id %>" onClick=deleteBeer(this.getAttribute('data-rel'))>Delete</a>
+              <br/>
+            </div>
+          </div>
+        <% } %>
+      </div>
+      <a id="toggleBrewed" class="btn btn-primary btn-lg float-right"">Toggle Brewed</a>
+
+  </div>
+
+  <% include ../partials/footer %>
+
+  <% include ../partials/scripts %>
+
   </body>
 </html>

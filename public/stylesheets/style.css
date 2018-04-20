@@ -1,8 +1,98 @@
+/* THESE ARE MAPPED SEE: ./style.css.map */
+/* GLOBAL ====================================== */
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  padding: 0px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url(/assets/bubbly2.jpg);
+  background-size: contain; }
 
 a {
   color: #00B7FF; }
+
+/* MODAL ====================================== */
+html .modal-dialog {
+  max-width: 680px; }
+
+.modal .answerSomeQs {
+  margin-bottom: 2rem; }
+
+/* HEADER ====================================== */
+div.jumbotron {
+  background-image: url(/assets/bgkd3.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0; }
+
+#logo-holder {
+  height: 300px;
+  width: 370px;
+  background-image: url(/assets/usa.png);
+  display: block;
+  position: relative;
+  background-position-x: 70%;
+  background-repeat: no-repeat; }
+
+#brewinLogo {
+  position: absolute;
+  top: -13%;
+  transform: rotate(-10deg);
+  left: -5%; }
+
+/* SUBNAV ====================================== */
+#subNav {
+  background-image: url(/assets/darkwood3-crop.jpg);
+  background-repeat: repeat-x;
+  padding: 2.5rem;
+  border-bottom: 5px solid black;
+  box-shadow: 5px 65px 125px rgba(255, 255, 255, 0.95); }
+
+#subNav a {
+  color: white; }
+
+#toggleBrewed {
+  color: white;
+  margin-bottom: 2rem; }
+
+#toggleBrewed.faded {
+  color: rgba(255, 255, 255, 0.7); }
+
+/* BEERS ====================================== */
+.beer-holder {
+  padding: 3rem 0 4rem 0; }
+
+.beer-item {
+  width: 25%; }
+
+html .card {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 2rem; }
+
+.card-body {
+  padding: 1.25rem;
+  background: white;
+  border: 1px solid lightgrey;
+  border-radius: 15px; }
+
+/* FOOTER ====================================== */
+footer {
+  background: url(/assets/darkwood3-crop.jpg);
+  height: 10rem;
+  color: white;
+  padding-top: 2rem;
+  border-top: 5px solid black;
+  text-align: center;
+  text-shadow: 2px 2px 5px black;
+  box-shadow: 10px -10px 150px black; }
+
+footer h4 {
+  color: #dc3545; }
+
+footer p.small {
+  color: #007bff; }
 
 /*# sourceMappingURL=style.css.map */

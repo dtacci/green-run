@@ -1,0 +1,62 @@
+<!-- Modal -->
+<div class="modal fade addModalElem" id="postModal" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCenterTitle">
+          <span class="addModalElem">Contribute Your Beer!</span>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="answerSomeQs">
+          <span class="addModalElem">Please answer a few questions about your beer and we'd be happy to add it to our group!</span>
+        </p>
+        <form class="needs-validation">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputName">Name of Beer</label>
+              <input type="text" class="form-control" id="inputName" placeholder="Name" autocomplete="name" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputBrewery">Name of Brewery</label>
+              <input type="text" class="form-control" id="inputBrewery" placeholder="Brewery" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputFlavor">In a couple words, describe the flavor of your Beer</label>
+            <input type="text" class="form-control" id="inputFlavor" placeholder="Malty, hoppy, light" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="inputABV">ABV Gravity in %</label>
+              <input type="text" class="form-control" id="inputABV" placeholder="5%" required>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputIBU"># IBU</label>
+              <input type="text" class="form-control" id="inputIBU" placeholder="74" required>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="inputLastBrewDate">Date last tapped</label>
+              <input type="text" class="form-control" id="inputLastBrewDate" placeholder="MM/DD/YYYY" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="isActivelyBrewed" checked>
+              <label class="form-check-label" for="isActivelyBrewed">
+                Yes, we've still go this on tap
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary addModalElem" onClick="addBeer()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

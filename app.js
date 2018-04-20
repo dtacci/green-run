@@ -5,18 +5,17 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const bodyParser = require('body-parser');
+const favicon = require('serve-favicon');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const beersRouter = require('./routes/beers');
-// const aboutRouter = require('./routes/about');
 
 const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
@@ -30,13 +29,13 @@ app.use(sassMiddleware({
   sourceMap: true,
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 // STARTING ROUTES
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // NEW ROUTES GO BELOW THIS LINE
-// app.use('/about', aboutRouter);
 app.use('/beers', beersRouter);
 
 // route for errors

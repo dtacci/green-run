@@ -12,8 +12,7 @@ const beerHub = require('../models');
 router.get('/', (req, res, next) => {
   beerHub.all((err, beers) => {
   	var beerList = JSON.parse(beers);
-  	// console.log(beerList);
-  	console.log('beers' + beers);
+  	// console.log('beers ' + beers);
     res.render('index', { beers, beerList, title: 'Brewin USA' });
   });
 });

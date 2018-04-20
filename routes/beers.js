@@ -106,6 +106,7 @@ router.post('/delete', (req, res, next) => {
 		} else { 
 			//less beer :( 
 			console.log('deleted... the world has less beer now...')
+			res.send({});
 		}
 	});
 });

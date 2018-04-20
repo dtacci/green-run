@@ -209,6 +209,3 @@ function editBeer(dataRel) {
 };
 
 
-
-
-

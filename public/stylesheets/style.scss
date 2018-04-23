@@ -9,6 +9,7 @@ body {
 }
 a {
   color: #00B7FF;
+  font-family: 'Roboto Slab', serif;
 }
 h1 {
 	font-family: 'Alfa Slab One', cursive;
@@ -16,6 +17,7 @@ h1 {
 /* MODAL ====================================== */
 html .modal-dialog {
 	max-width: 680px;
+  font-family: 'Roboto Slab', serif;
 }
 .modal .answerSomeQs {
 	margin-bottom: 2rem;
@@ -178,6 +180,7 @@ html .card {
     background: white;
     border: 1px solid lightgrey;
     border-radius: 15px;
+    font-family: 'Roboto Slab', serif;
 }
 /* FOOTER ====================================== */
 footer {
@@ -189,6 +192,7 @@ footer {
     text-align: center;
     text-shadow: 2px 2px 5px black;
     box-shadow: 10px -10px 150px black;
+    font-family: 'Roboto Slab', serif;
 }
 footer h4 {
 	color: #dc3545;

@@ -42,7 +42,8 @@ router.post('/add', (req, res, next) => {
   	flavors: req.body.flavors,
 	  lastTappedOn: req.body.lastTappedOn,
 	  breweryId: req.body.breweryId,
-	  breweryName: req.body.breweryName
+	  breweryName: req.body.breweryName,
+	  activelyBrewed: req.body.activelyBrewed
 	};
 
 	//run the all function to get access to the full dataset
@@ -62,7 +63,9 @@ router.post('/add', (req, res, next) => {
 			} else {
 				//hooray beer! 
 				console.log('The world has gained a beer, and this is truly a day of rejoicing...')
-				res.send({ success: 'successfully added' });
+				//respond with newly created object
+				console.log(beer);
+				res.send(beer);
 			}
 		});
   });

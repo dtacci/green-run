@@ -45,15 +45,18 @@
 
     <div class="container beer-holder">
       <!-- Example of how to render the data server-side // we could also do this with ajax -->
-      <div class="row beer-card-container" data-isotope='{ "itemSelector": ".card", "layoutMode": "fitRows", "filter": ".card" }' >
+      <!-- Remove Isotope for now<div class="row beer-card-container" data-isotope='{ "itemSelector": ".card", "layoutMode": "fitRows", "filter": ".card" }' > -->
+      <div class="row beer-card-container" >
         <% for (var i = 0; i< beerList.value.length; i++) { %>
           <div class="card col-4 brewed<%= beerList.value[i].activelyBrewed %>" style="" data-rel="<%= beerList.value[i].id %>">
             <div class="card-body">
-              <h5 class="card-title">#<%= beerList.value[i].id %> <%= beerList.value[i].name %></h5>
-              <h6>by <%= beerList.value[i].breweryName %></h6>
-              <h6><%= beerList.value[i].abv %>% ABV, <%= beerList.value[i].ibu %> IBU </h6>
-              <h6 class="small">Last tapped on <%= beerList.value[i].lastTappedOn %></h6>
-              <p class="card-text">Tastes: <%= beerList.value[i].flavors %></p>
+              <h5 class="card-title">#<span class="beerListID"><%= beerList.value[i].id %></span>
+                <span class="beerListName"><%= beerList.value[i].name %></span>
+              </h5>
+              <h6 class="beerListBreweryName">by <%= beerList.value[i].breweryName %></h6>
+              <h6><span class="beerListABV"><%= beerList.value[i].abv %></span>% ABV, <span class="beerListIBU"><%= beerList.value[i].ibu %></span> IBU </h6>
+              <h6 class="small">Last tapped on <span class="beerListLastTapped"><%= beerList.value[i].lastTappedOn %></span></h6>
+              <p class="card-text">Tastes: <span class="beerListFlavors"><%= beerList.value[i].flavors %></span></p>
               <a href="#" class="btn btn-primary" data-rel="<%= beerList.value[i].id %>" onClick=editBeerModal(this.getAttribute('data-rel'))>Edit</a>
               <a href="#" class="btn btn-primary" data-rel="<%= beerList.value[i].id %>" onClick=deleteBeer(this.getAttribute('data-rel'))>Delete</a>
               <br/>

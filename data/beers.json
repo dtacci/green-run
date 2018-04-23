@@ -15,22 +15,22 @@
       "id": 2,
       "name": "Agogwe Ale",
       "activelyBrewed": "true",
-      "ibu": "29",
-      "abv": "2.9",
+      "ibu": 28,
+      "abv": 2.9,
       "flavors": "wheat, floral",
       "lastTappedOn": "5/18/2016",
-      "breweryId": "UserSubmitted",
+      "breweryId": "Ek4mwsBoe",
       "breweryName": "Southern Hemisphere Brewco"
     },
     {
       "id": 3,
       "name": "Aswang Ale",
       "activelyBrewed": "true",
-      "ibu": "31",
-      "abv": "4.2",
+      "ibu": 31,
+      "abv": 4.2,
       "flavors": "butter, yeast",
       "lastTappedOn": "2/13/2016",
-      "breweryId": "UserSubmitted",
+      "breweryId": "b3TplPdS",
       "breweryName": "Northern Hemisphere Brewco"
     },
     {
@@ -114,11 +114,11 @@
       "id": 17,
       "name": "Chocolate Pukwudgie Stout",
       "activelyBrewed": "true",
-      "ibu": "34",
-      "abv": "12.2",
+      "ibu": 35,
+      "abv": 12.2,
       "flavors": "chocolate, coffee",
       "lastTappedOn": "2/25/2016",
-      "breweryId": "UserSubmitted",
+      "breweryId": "zkXBTiBol",
       "breweryName": "North American Brewco"
     },
     {
@@ -147,22 +147,22 @@
       "id": 21,
       "name": "Snallygaster Pale Ale",
       "activelyBrewed": "false",
-      "ibu": "88",
-      "abv": "9.7",
+      "ibu": 89,
+      "abv": 9.7,
       "flavors": "pine, honey",
       "lastTappedOn": "4/29/2016",
-      "breweryId": "UserSubmitted",
+      "breweryId": "zkXBTiBol",
       "breweryName": "North American Brewco"
     },
     {
       "id": 22,
       "name": "Tikibalang Barley Wine",
       "activelyBrewed": "true",
-      "ibu": "45",
-      "abv": "9.6",
-      "flavors": "bourbony",
+      "ibu": 45,
+      "abv": 9.6,
+      "flavors": "bourbon",
       "lastTappedOn": "3/14/2016",
-      "breweryId": "UserSubmitted",
+      "breweryId": "b3TplPdS",
       "breweryName": "Northern Hemisphere Brewco"
     },
     {
@@ -180,11 +180,11 @@
       "id": 27,
       "name": "North Adjule Lager",
       "activelyBrewed": "true",
-      "ibu": "30",
-      "abv": "3.7",
+      "ibu": 30,
+      "abv": 3.7,
       "flavors": "citrus",
       "lastTappedOn": "2/8/2016",
-      "breweryId": "UserSubmitted",
+      "breweryId": "Ek4mwsBoe",
       "breweryName": "Southern Hemisphere Brewco"
     }
   ]

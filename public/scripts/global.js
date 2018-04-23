@@ -1,7 +1,7 @@
 // DOM Ready =============================================================
 $(document).ready(function() {
 
-  //load Isotope
+  //load Isotope 
   var $grid = $('.grid').isotope({
     // options
     itemSelector: '.card',
@@ -52,13 +52,17 @@ function addBeer() {
   //check and make sure errorCount is still zero
   if(errorCount === 0) {
 
-    //on verification, compile info to Object
+    //on verification, check if brewed, convert to string
+    var isActivelyBrewed = "";
+    if ($('#postModal #isActivelyBrewed').prop('checked') == false) {
+      isActivelyBrewed = "false";}
+    else { 
+      isActivelyBrewed = "true";} 
+
+    //all others, compile info to Object
     var newlyAddedBeer = {
       "name": $('#postModal input#inputName').val(),
-      "activelyBrewed": (function() {
-        var brewedIsChecked= document.getElementById('isActivelyBrewed').checked;
-        brewedIsChecked == 'checked' ? "true" : "false";
-        })(), 
+      "activelyBrewed": isActivelyBrewed,
       "ibu": $('#postModal input#inputIBU').val(),
       "abv": $('#postModal input#inputABV').val(),
       "flavors": $('#postModal input#inputFlavor').val(),
@@ -81,6 +85,23 @@ function addBeer() {
         //Clear forms
         $('#postModal input').val('');
         $('#postModal').modal('hide');
+
+        //create new div and populate client side
+        $('<div>', {class: 'card col-4 brewed' + response.activelyBrewed , style: 'display: none;'}).attr('data-rel', response.id).appendTo('.beer-card-container');
+        var $newBeerAdded = $('.beer-card-container').find("[data-rel='" + response.id + "']");
+        $newBeerAdded.append( $('<div>', {class: 'card-body'}) );
+        $newBeerAdded.find('.card-body').append( ' <h5 class="card-title">#<span class="' + response.id + '">'+ response.id +'</span>' + 
+          '<span class="beerListName">' + response.name + '</span></h5>');
+        $newBeerAdded.find('.card-body').append(' <h6 class="beerListBreweryName">by ' + response.breweryName +'</h6>');
+        $newBeerAdded.find('.card-body').append('<h6><span class="beerListABV">' + response.abv + '</span>% ABV,' +
+         '<span class="beerListIBU">'+ response.ibu + '</span> IBU </h6>');
+        $newBeerAdded.find('.card-body').append('<h6 class="small">Last tapped on <span class="beerListLastTapped">' + response.lastTappedOn + '</span></h6> ');
+        $newBeerAdded.find('.card-body').append('<p class="card-text">Tastes: <span class="beerListFlavors">' + response.flavors + '</span></p>');
+        $newBeerAdded.find('.card-body').append('<a href="#" class="btn btn-primary" data-rel="' + response.id + '" onClick=editBeerModal(this.getAttribute("data-rel"))>Edit</a>');
+        $newBeerAdded.find('.card-body').append('<a href="#" class="btn btn-primary" data-rel="' + response.id + '" onClick=deleteBeer(this.getAttribute("data-rel"))>Delete</a>');
+        //scroll to the change
+        document.querySelector('footer').scrollIntoView({ behavior: 'smooth', alignToTop: false });
+        $newBeerAdded.fadeIn();
         return
       }
       else {
@@ -99,6 +120,9 @@ function addBeer() {
 //Beer object deleting function =============================================================
 function deleteBeer(dataRel) {
 
+  //prevent normal href action
+  event.preventDefault();
+
   //.ajax call
   $.ajax({
     type: 'POST',
@@ -109,7 +133,8 @@ function deleteBeer(dataRel) {
 
     //check for successful response
     if (!response.error) {
-      //yay it worked
+      //yay it worked! Now delete the beer on the client side since it's gone off the server
+      $('.beer-card-container').find("[data-rel='" + dataRel + "']").fadeOut(400, function(){ $(this).remove(); });
     }
     else {
       //if something goes wrong, give err response
@@ -121,6 +146,9 @@ function deleteBeer(dataRel) {
 
 //Beer object edit modal function =============================================================
 function editBeerModal(dataRel) {
+  //prevent normal href action (prevent jumping)
+  event.preventDefault();
+
   //show modal (duh)
   $('#editModal').modal('show');
 
@@ -163,13 +191,16 @@ function editBeer(dataRel) {
   //check and make sure errorCount is still zero
   if(errorCount === 0) {
 
+    var isActivelyBrewed = "";
+    if ($('#editModal #isActivelyBrewed').prop('checked') == false) {
+      isActivelyBrewed = "false";}
+    else { 
+      isActivelyBrewed = "true";} 
+
     //on verification, compile info to Object
     var editedBeerObj = {
       "name": $('#editModal #inputName').val(),
-      "activelyBrewed": (function() {
-        var brewedIsChecked= document.getElementById('isActivelyBrewed').checked;
-        brewedIsChecked == 'checked' ? "true" : "false";
-        })(), 
+      "activelyBrewed": isActivelyBrewed,
       "ibu": $('#editModal #inputIBU').val(),
       "abv": $('#editModal #inputABV').val(),
       "flavors": $('#editModal #inputFlavor').val(),
@@ -185,7 +216,7 @@ function editBeer(dataRel) {
       url: '/beers/edit',
       dataType: 'JSON'
     }).fail(function( response ) {
-      console.log(' error it failed');
+      console.log(' error: it failed');
     }).done(function( response ) {
 
       //check for successful response
@@ -193,6 +224,16 @@ function editBeer(dataRel) {
 
         //Hide modal
         $('#editModal').modal('hide');
+        //update text on the client side
+        var beerToEdit = $('.beer-card-container').find("[data-rel='" + dataRel + "']");
+        beerToEdit.find('.beerListName').text(editedBeerObj.name);
+        beerToEdit.find('.beerListBreweryName').text(editedBeerObj.breweryName);
+        beerToEdit.find('.beerListABV').text(editedBeerObj.abv);
+        beerToEdit.find('.beerListIBU').text(editedBeerObj.ibu);
+        beerToEdit.find('.beerListLastTapped').text(editedBeerObj.lastTappedOn);
+        beerToEdit.find('.beerListFlavors').text(editedBeerObj.flavors);
+        //scroll to the change
+        document.querySelector('.beer-holder').scrollIntoView({ behavior: 'smooth' });
 
       }
       else {
@@ -204,7 +245,7 @@ function editBeer(dataRel) {
   else {
     //if errorCount is more than 0, error out
     alert('Please fill all the fields!');
-    return false;s
+    return false;
   }
 };
 

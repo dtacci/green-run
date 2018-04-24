@@ -11,6 +11,9 @@ a {
   color: #00B7FF;
   font-family: 'Roboto Slab', serif;
 }
+a.btn {
+  margin-right: .5rem;
+}
 h1 {
 	font-family: 'Alfa Slab One', cursive;
 }
@@ -35,7 +38,7 @@ html .modal-dialog {
  #logo-holder {
     height: 300px;
     width: 370px;
-    background-image: url(/assets/usa.png);
+    background-image: url(/assets/USA.png);
     display: block;
     position: relative;
     background-position-x: 70%;

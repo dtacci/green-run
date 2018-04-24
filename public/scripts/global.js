@@ -40,6 +40,22 @@ function addBeerModal() {
   $('#postModal').modal('show');
 }
 
+(function editBeerModalFinder() {
+  $('.beer-card-container').on('click', '.editbtn', function(event){ 
+    dataRel = $(this).data('rel');
+    event.preventDefault();
+    editBeerModal(dataRel);
+  });
+})();
+
+(function deleteBeerModalFinder() {
+  $('.beer-card-container').on('click', '.deletebtn', function(event){ 
+    dataRel = $(this).data('rel');
+    event.preventDefault();
+    deleteBeer(dataRel);
+  });
+})();
+
 //Main beer object adding function =============================================================
 function addBeer() {
 
@@ -97,8 +113,8 @@ function addBeer() {
          '<span class="beerListIBU">'+ response.ibu + '</span> IBU </h6>');
         $newBeerAdded.find('.card-body').append('<h6 class="small">Last tapped on <span class="beerListLastTapped">' + response.lastTappedOn + '</span></h6> ');
         $newBeerAdded.find('.card-body').append('<p class="card-text">Tastes: <span class="beerListFlavors">' + response.flavors + '</span></p>');
-        $newBeerAdded.find('.card-body').append('<a href="#" class="btn btn-primary" data-rel="' + response.id + '" onClick=editBeerModal(this.getAttribute("data-rel"))>Edit</a>');
-        $newBeerAdded.find('.card-body').append('<a href="#" class="btn btn-primary" data-rel="' + response.id + '" onClick=deleteBeer(this.getAttribute("data-rel"))>Delete</a>');
+        $newBeerAdded.find('.card-body').append('<a href="#" class="btn btn-primary editbtn" data-rel="' + response.id + '" >Edit</a>');
+        $newBeerAdded.find('.card-body').append('<a href="#" class="btn btn-primary deletebtn" data-rel="' + response.id + '" >Delete</a>');
         //scroll to the change
         document.querySelector('footer').scrollIntoView({ behavior: 'smooth', alignToTop: false });
         $newBeerAdded.fadeIn();

@@ -57,8 +57,8 @@
               <h6><span class="beerListABV"><%= beerList.value[i].abv %></span>% ABV, <span class="beerListIBU"><%= beerList.value[i].ibu %></span> IBU </h6>
               <h6 class="small">Last tapped on <span class="beerListLastTapped"><%= beerList.value[i].lastTappedOn %></span></h6>
               <p class="card-text">Tastes: <span class="beerListFlavors"><%= beerList.value[i].flavors %></span></p>
-              <a href="#" class="btn btn-primary" data-rel="<%= beerList.value[i].id %>" onClick=editBeerModal(this.getAttribute('data-rel'))>Edit</a>
-              <a href="#" class="btn btn-primary" data-rel="<%= beerList.value[i].id %>" onClick=deleteBeer(this.getAttribute('data-rel'))>Delete</a>
+              <a href="#" class="btn btn-primary editbtn" data-rel="<%= beerList.value[i].id %>" >Edit</a>
+              <a href="#" class="btn btn-primary deletebtn" data-rel="<%= beerList.value[i].id %>")>Delete</a>
               <br/>
             </div>
           </div>
